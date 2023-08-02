@@ -1,0 +1,8 @@
+<h1>Sign Up Page</h1>
+<form (submit)="onSubmit()">
+  <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required>
+  <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
+  <input type="text" placeholder="ID" [(ngModel)]="id" name="id" required>
+  <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+  <button type="submit">Sign Up</button>
+</form>
