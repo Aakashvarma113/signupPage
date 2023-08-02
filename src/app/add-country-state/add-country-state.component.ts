@@ -23,11 +23,9 @@ export class AddCountryStateComponent {
 
       this.http.post('http://localhost:3000/country-state', data).subscribe(
         (response) => {
-          // Data added successfully
           this.dialogRef.close('success');
         },
         (error) => {
-          // Handle error
         }
       );
     }

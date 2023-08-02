@@ -37,17 +37,14 @@ export class SigninComponent {
     this.http.post('http://localhost:3000/users/login', loginData).subscribe(
       (response) => {
         if (response) {
-          // User successfully logged in, save user information to local storage
           localStorage.setItem('currentUser', JSON.stringify(response));
 
           // Navigate to the personal dashboard
           this.router.navigate(['/dashboard']);
         } else {
-          // Handle login error (e.g., show an error message)
         }
       },
       (error) => {
-        // Handle login error (e.g., show an error message)
       }
     );
   }

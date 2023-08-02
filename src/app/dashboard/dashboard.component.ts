@@ -25,28 +25,25 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchCountryStateData(): void {
-    // Fetch country and state data for the current user from the backend
     this.http.get<any[]>('http://localhost:3000/country-state').subscribe(
       (response) => {
         this.countryStateData = response;
       },
       (error) => {
-        // Handle error
       }
     );
   }
 
   createCountryState(data: any): void {
-    // Add the user ID to the country state data before sending the POST request
     data.userId = this.currentUser.id;
 
     this.http.post<any>('http://localhost:3000/country-state', data).subscribe(
       (response) => {
-        // Handle the response, if needed
-        this.fetchCountryStateData(); // Refresh the country state data after creating a new country state
+
+        this.fetchCountryStateData();
       },
       (error) => {
-        // Handle the error, if needed
+
       }
     );
   }
@@ -58,7 +55,6 @@ export class DashboardComponent implements OnInit {
       width: '400px',
     });
 
-    // After the pop-up form is closed, refresh the country and state data
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'success') {
         this.createCountryState(result);

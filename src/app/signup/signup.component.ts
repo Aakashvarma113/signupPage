@@ -23,11 +23,9 @@ export class SignupComponent {
 
     this.http.post('http://localhost:3000/users', userData).subscribe(
       (response) => {
-        // Handle successful response (e.g., show a success message)
         console.log('Signup successful!');
       },
       (error) => {
-        // Handle error (e.g., show an error message)
         console.error('Signup failed:', error);
       }
     );
